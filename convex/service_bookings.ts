@@ -37,6 +37,8 @@ export const sendBookingEmail = action({
   },
   returns: v.null(),
   handler: async (_ctx, args) => {
+    // Accessing _ctx to satisfy strict linters
+    void _ctx;
     const apiKey = process.env.RESEND_API_KEY;
     
     if (!apiKey) {
