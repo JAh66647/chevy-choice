@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chevys Choice Cleaning Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4d7ea8;
+            --primary-light: #f0f4f8;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 2rem;
+            background: var(--primary-light);
+            border-bottom: 1px solid rgba(77, 126, 168, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--primary);
+        }
+
+        .logo span {
+            font-size: 0.875rem;
+            font-style: italic;
+            color: rgba(77, 126, 168, 0.7);
+            display: block;
+        }
+
+        /* Hero Section */
+        header {
+            padding: 5rem 1rem;
+            background: var(--primary-light);
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 900;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 1.25rem 3rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.25rem;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, filter 0.2s;
+            box-shadow: 0 10px 15px -3px rgba(77, 126, 168, 0.2);
+        }
+
+        .btn-primary:hover {
+            filter: brightness(1.1);
+            transform: translateY(-2px);
+        }
+
+        .call-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .call-text span {
+            color: rgba(77, 126, 168, 0.6);
+            margin-right: 0.5rem;
+        }
+
+        .call-text a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .call-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Services */
+        .services {
+            padding: 5rem 1rem;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            text-decoration: underline;
+            text-underline-offset: 8px;
+            text-decoration-color: rgba(77, 126, 168, 0.2);
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background: var(--primary-light);
+            padding: 2.5rem;
+            border-radius: 24px;
+            text-align: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .check-icon {
+            width: 3rem;
+            height: 3rem;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Values Section */
+        .values {
+            background: var(--primary);
+            color: var(--white);
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .values h2 {
+            font-style: italic;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .value-item {
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 1rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            border: 4px solid var(--primary-light);
+            border-radius: 40px;
+            padding: 3rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .contact h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info div {
+            margin-bottom: 2rem;
+        }
+
+        .label {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .contact-info a {
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            color: var(--primary);
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(77, 126, 168, 0.3);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal {
+            background: var(--white);
+            width: 95%;
+            max-width: 500px;
+            border-radius: 32px;
+            padding: 2.5rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .modal h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        footer {
+            padding: 3rem;
+            text-align: center;
+            color: rgba(77, 126, 168, 0.4);
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 768px) {
+            .logo span { display: block; margin-left: 0; }
+            .contact-card { padding: 1.5rem; }
+            h1 { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">
+            Chevys Choice
+            <span>Cleaning Services</span>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Chevys Choice</h1>
+        <p class="hero-p">Professional & Eco-Friendly Cleaning Solutions for Your Home. Honest, Reliable, and Responsible.</p>
+        <div class="cta-container">
+            <button class="btn-primary" onclick="openModal()">Book Now</button>
+            <div class="call-text">
+                <span>or call</span>
+                <a href="tel:9295426700">929-542-6700</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="services" id="services">
+        <h2>Our Flexible Services</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="check-icon">✓</div>
+                <h3>Weekly Service</h3>
+                <p>Keep your home consistently fresh and organized with our routine weekly visits.</p>
+            </div>
+            <div class="service-card">
+                <div class="check-icon">✓</div>
+                <h3>Bi-Weekly Service</h3>
+                <p>The perfect balance for busy families looking to maintain a tidy home.</p>
+            </div>
+            <div class="service-card">
+                <div class="check-icon">✓</div>
+                <h3>Monthly Service</h3>
+                <p>A deep clean once a month to ensure your living space stays sparkling.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="values">
+        <h2>"Honest - Reliable - Responsible"</h2>
+        <div class="value-grid">
+            <div class="value-item">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🌿</div>
+                <h4>Eco-Friendly</h4>
+                <p>Safe products for your home.</p>
+            </div>
+            <div class="value-item">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🤝</div>
+                <h4>Honest</h4>
+                <p>Trustworthy professionals.</p>
+            </div>
+            <div class="value-item">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">⭐</div>
+                <h4>Reliable</h4>
+                <p>Always on time.</p>
+            </div>
+            <div class="value-item">
+                <div style="font-size: 2rem; margin-bottom: 1rem;">🏠</div>
+                <h4>Responsible</h4>
+                <p>We care for your home.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="contact-card">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div>
+                    <p class="label">Owner</p>
+                    <p class="info-text">Tanisha Walker</p>
+                </div>
+                <div>
+                    <p class="label">Phone</p>
+                    <p class="info-text"><a href="tel:9295426700">929-542-6700</a></p>
+                </div>
+                <div>
+                    <p class="label">Email</p>
+                    <p class="info-text"><a href="mailto:hotytea.tt@gmail.com">hotytea.tt@gmail.com</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Chevys Choice Cleaning Services. All rights reserved.</p>
+    </footer>
+
+    <!-- Booking Popup -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <h3>Book Your Service</h3>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" required placeholder="929-542-6700">
+                </div>
+                <div class="form-group">
+                    <label>Service Type</label>
+                    <select id="service">
+                        <option>Weekly</option>
+                        <option>Bi-Weekly</option>
+                        <option>Monthly</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea id="message" rows="3" placeholder="Tell us about your home..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem;">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        // Handle the form submission
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+
+            // Since this is plain HTML, we use a mailto link to "send" the email
+            const subject = "New Booking Request: " + service;
+            const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AService: ${service}%0D%0AMessage: ${message}`;
+            
+            window.location.href = `mailto:hotytea.tt@gmail.com,jahiemdowner347@gmail.com?subject=${subject}&body=${body}`;
+            
+            alert("Thank you! Your email client will now open to send the request.");
+            closeModal();
+        });
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const overlay = document.getElementById('modalOverlay');
+            if (event.target == overlay) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
