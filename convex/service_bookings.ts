@@ -36,7 +36,7 @@ export const sendBookingEmail = action({
     message: v.optional(v.string()),
   },
   returns: v.null(),
-  handler: async (ctx, args) => {
+  handler: async (_ctx, args) => {
     const apiKey = process.env.RESEND_API_KEY;
     
     if (!apiKey) {
